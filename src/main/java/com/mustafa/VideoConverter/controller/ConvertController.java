@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 @RestController
@@ -35,7 +34,13 @@ public class ConvertController {
 
         return "Video Dönüşümü Bitti Toplam geçen süre saniye cinsinden: " + seconds;
      */
+    }
 
+    @PostMapping("/cuttingVideoMp4")
+    public void cuttingVideoMp4(@RequestParam String videoPath, @RequestParam String videName, @RequestParam String startHour, @RequestParam String startMinute, @RequestParam String startSecond, @RequestParam String howMuchHour, @RequestParam String howMuchMinute, @RequestParam String howMuchSecond, @RequestParam String async) throws IOException, InterruptedException {
+
+
+        convertService.cuttingVideoMp4(videoPath,videName,startHour,startMinute,startSecond,howMuchHour,howMuchMinute,howMuchSecond,async);
 
     }
 }
